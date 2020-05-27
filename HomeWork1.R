@@ -1,12 +1,11 @@
 url <- "https://raw.githubusercontent.com/jcbonilla/BusinessAnalytics/master/BAData/groceries-vertical.csv"
 data <- read.csv(url, header = TRUE, stringsAsFactors = FALSE)
 
-
-
 top = as.data.frame(head(table(products)[order(table(products), decreasing = TRUE)]))
 
 # Function that takes a row (transaction) and a parameter n 
 ## and generates combinations of n products in a transaction.
+
 create_itemsets <- function(row, n) {  
   products <- row[2:33]     #products are in the range from column 2 to 33
   products <- products[products != ""]   #remove empty strings
@@ -16,6 +15,7 @@ create_itemsets <- function(row, n) {
     combinations = c(); # empty vector
   return(combinations)
 }
+
 itemsets2 <- apply(data, 1, create_itemsets, 2)
 itemsets2 <- do.call(rbind, itemsets2)
 itemsets2 <- as.data.frame(itemsets2)
