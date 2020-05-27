@@ -1,4 +1,5 @@
 ###First Question
+
 Question1$Price <- Question1$`Price ($)`   ## Changing name
 Question1$Weight <- Question1$`Weight (lbs)`
 plot(Question1$Weight, Question1$Price)
@@ -7,7 +8,8 @@ str(Question1)
 model <- lm(Price ~ Weight, data = Question1)
 summary(model)
 
-###second question
+###Second question
+
 plot(Question2$LineSpeed, Question2$Number_of_defective_Parts)
 abline(Model2, col = "blue")
 str(Question2)
